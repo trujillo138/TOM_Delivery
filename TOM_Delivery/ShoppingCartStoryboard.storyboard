@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Shopping Cart View Controller-->
+        <scene sceneID="B20-qf-0nz">
+            <objects>
+                <viewController storyboardIdentifier="ShoppingCartViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="At4-ZK-Owx" customClass="ShoppingCartViewController" customModule="TOM_Delivery" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dsh-zq-XyT"/>
+                        <viewControllerLayoutGuide type="bottom" id="aeB-P2-Ot2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eBx-T0-wyc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pjd-f5-VGh">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xT4-7M-5a0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hp2-LP-hdG">
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzQ-0p-k4J">
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Std delivery time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDb-NL-2pS">
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfg-7m-WgC" customClass="CircularImageButton" customModule="TOM_Delivery" customModuleProvider="target">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hfg-7m-WgC" secondAttribute="height" multiplier="1:1" id="poU-aI-rYw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pjd-f5-VGh" firstAttribute="top" secondItem="VzQ-0p-k4J" secondAttribute="bottom" constant="8" id="0yG-st-eRU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hfg-7m-WgC" secondAttribute="trailing" id="8AV-LA-NDX"/>
+                            <constraint firstItem="xT4-7M-5a0" firstAttribute="width" secondItem="eBx-T0-wyc" secondAttribute="width" multiplier="0.5" id="AGP-cf-RzJ"/>
+                            <constraint firstItem="VzQ-0p-k4J" firstAttribute="leading" secondItem="xT4-7M-5a0" secondAttribute="trailing" constant="7.5" id="CiH-lM-Qfz"/>
+                            <constraint firstItem="Pjd-f5-VGh" firstAttribute="leading" secondItem="eBx-T0-wyc" secondAttribute="leading" id="Dmw-b6-baG"/>
+                            <constraint firstItem="rDb-NL-2pS" firstAttribute="leading" secondItem="xT4-7M-5a0" secondAttribute="trailing" constant="7.5" id="OEh-xc-JfA"/>
+                            <constraint firstItem="Pjd-f5-VGh" firstAttribute="top" secondItem="xT4-7M-5a0" secondAttribute="bottom" id="Tdw-6a-OxQ"/>
+                            <constraint firstItem="aeB-P2-Ot2" firstAttribute="top" secondItem="Pjd-f5-VGh" secondAttribute="bottom" id="V9X-TH-EcV"/>
+                            <constraint firstItem="Pjd-f5-VGh" firstAttribute="height" secondItem="eBx-T0-wyc" secondAttribute="height" multiplier="0.7" id="d8i-TI-cxU"/>
+                            <constraint firstAttribute="trailing" secondItem="Pjd-f5-VGh" secondAttribute="trailing" id="eGZ-Q5-gPc"/>
+                            <constraint firstItem="Hp2-LP-hdG" firstAttribute="top" secondItem="Dsh-zq-XyT" secondAttribute="bottom" constant="8" symbolic="YES" id="eOP-5T-gg5"/>
+                            <constraint firstItem="xT4-7M-5a0" firstAttribute="leading" secondItem="eBx-T0-wyc" secondAttribute="leading" id="fpO-im-j8M"/>
+                            <constraint firstItem="VzQ-0p-k4J" firstAttribute="top" secondItem="rDb-NL-2pS" secondAttribute="bottom" constant="5.5" id="gmS-Sd-7vJ"/>
+                            <constraint firstItem="xT4-7M-5a0" firstAttribute="top" secondItem="Dsh-zq-XyT" secondAttribute="bottom" id="jcM-gr-lt9"/>
+                            <constraint firstAttribute="trailing" secondItem="Hp2-LP-hdG" secondAttribute="trailing" constant="20" symbolic="YES" id="lHD-ob-KpF"/>
+                            <constraint firstItem="hfg-7m-WgC" firstAttribute="width" secondItem="eBx-T0-wyc" secondAttribute="width" multiplier="0.2" id="mnm-jF-Wdi"/>
+                            <constraint firstItem="aeB-P2-Ot2" firstAttribute="top" secondItem="hfg-7m-WgC" secondAttribute="bottom" constant="8" symbolic="YES" id="v6P-ou-p5h"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buyButton" destination="hfg-7m-WgC" id="jBP-DQ-lSZ"/>
+                        <outlet property="mostBoughtProductImageView" destination="xT4-7M-5a0" id="X6u-Oj-jYV"/>
+                        <outlet property="shoppingCartTableView" destination="Pjd-f5-VGh" id="t0D-hw-KVu"/>
+                        <outlet property="totalCostLabel" destination="Hp2-LP-hdG" id="1vk-MR-MJ5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LUl-Qp-fVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="421.60000000000002" y="-40.929535232383813"/>
+        </scene>
+    </scenes>
+</document>
