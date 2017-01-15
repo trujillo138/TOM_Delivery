@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 struct StoryboardConstants {
     static let ResturanteMenuStoryboardIdentifier = "RestaurantStoryboard"
@@ -35,6 +36,7 @@ class API {
     //MARK: Shopping cart functions
     
     class func buyCart() {
+        API.requestNotificationAuthorization()
         let newDelivery = Delivery()
         newDelivery.products = restaurant.products.filter({$0.quantity > 0}).map { p in
             return Product.clone(product: p)
@@ -43,7 +45,29 @@ class API {
         newDelivery.calculateDeliveryTotal()
         newDelivery.deliveryDate = calculateNextDeliveryDate()
         newDelivery.calculateMostBoughtProduct()
+        API.scheduleNotification(forDelivery: newDelivery)
         API.deliveries.append(newDelivery)
+    }
+    
+    private class func requestNotificationAuthorization() {
+        let uNNotificationCenter = UNUserNotificationCenter.current()
+        uNNotificationCenter.requestAuthorization(options: [.sound, .alert]) { (grantAccess, error) in
+            //Do something if denied permission
+        }
+    }
+    
+    private class func scheduleNotification(forDelivery delivery: Delivery) {
+        let nextSaleDate = delivery.deliveryDate
+        let uNNotificationCenter = UNUserNotificationCenter.current()
+        let content = UNMutableNotificationContent()
+        content.title = "Order delivered!"
+        content.body = "Your $\(delivery.total) order has arrived"
+        content.sound = UNNotificationSound.default()
+        content.categoryIdentifier = APINotification.DeliveryNotificationCategory
+        content.badge = 1
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: nextSaleDate.timeIntervalSince(Date()), repeats: false)
+        let request = UNNotificationRequest(identifier: "Delivery\(delivery.total)", content: content, trigger: trigger) // Schedule the notification.
+        uNNotificationCenter.add(request)
     }
     
     private class func clearCart() {
@@ -54,7 +78,7 @@ class API {
     
     private class func calculateNextDeliveryDate() -> Date {
         var date = Date()
-        date.addTimeInterval(3 * 60)
+        date.addTimeInterval(20)
         return date
     }
     
